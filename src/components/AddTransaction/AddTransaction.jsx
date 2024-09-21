@@ -8,27 +8,11 @@ const AddTransaction = () => {
     setDescription,
     setAmount,
     userDetail,
-    setUserDetail,
+    handleSubmit,
+    transactionType,
+    setTransactionType,
   } = useContext(BalanceContext);
 
-  const [transactionType, setTransactionType] = useState("income");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const id = userDetail.length + 1;
-    const newUser = [
-      ...userDetail,
-      {
-        id: id,
-        description: description,
-        amount: amount,
-        type: transactionType,
-      },
-    ];
-
-    setUserDetail(newUser);
-  };
 
   const handleDescription = (e) => {
     setDescription(e.target.value);
@@ -112,7 +96,7 @@ const AddTransaction = () => {
         <div className="flex justify-center">
           <button
             type="submit"
-            className="bg-[#2a9f90] px-4 py-2 rounded text-[18px] text-white inline-block my-4"
+            className="bg-[#2a9f90] px-4 py-2 rounded text-[18px] text-white inline-block mt-7 my-4"
           >
             Add Transaction
           </button>

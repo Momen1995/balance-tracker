@@ -6,7 +6,7 @@ const Transaction = ({ transaction }) => {
   const {description,amount,type} = transaction;
   
   return (
-    <div className="flex justify-between items-center p-4 border-b-2">
+    <div className="flex justify-between items-center p-4 border-b-2 border-gray-200 border-dashed">
       <div className="flex gap-3 items-center">
         <h1 className="text-red-700 text-xl">
           {type === "income" ? <FaPlus /> : <FaMinus />}
