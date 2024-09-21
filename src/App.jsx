@@ -12,6 +12,8 @@ function App() {
    const [userDetail, setUserDetail] = useState([]);
    const [transactionType, setTransactionType] = useState("income");
    const [totalBalance, setTotalBalance] = useState(0);
+   const [totalIncome,setTotalIncome] = useState(0)
+   const [totalExpense,setTotalExpense] = useState(0)
 
 
    const handleSubmit = (e) => {
@@ -30,8 +32,10 @@ function App() {
 
      if(amount > 0){
       setTotalBalance((preBalance) => preBalance + Number(amount));
+      setTotalIncome(preBalance => preBalance + Number(amount) )
      }else{
       setTotalBalance((preBalance) => preBalance + Number(amount));
+      setTotalExpense((preBalance) => preBalance + Number(amount));
      }
 
      setUserDetail(newUser);
@@ -50,7 +54,9 @@ function App() {
           handleSubmit,
           transactionType,
           setTransactionType,
-          totalBalance
+          totalBalance,
+          totalIncome,
+          totalExpense,
         }}
       >
         <div className="bg-[#ffffff w-10/12 mx-auto">
