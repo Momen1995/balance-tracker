@@ -17,14 +17,14 @@ const Transaction = ({ transaction }) => {
   return (
     <div className="flex justify-between items-center p-3 lg:p-4 border-b-2 border-gray-200 border-dashed">
       <div className="flex gap-3 items-center">
-        <h1 className={`text-[6px] lg:text-[12px] p-1 lg:p-2 rounded-full ${iconClasses}`}>
+        <h1 className={`text-[6px] lg:text-[9px] p-1 lg:p-2 rounded-full ${iconClasses}`}>
           {type === "income" ? <FaPlus /> : <FaMinus />}
         </h1>
-        <h1 className="text-sm lg:text-xl font-semibold text-gray-600">{description}</h1>
+        <h1 className="text-sm lg:text-[17px] font-semibold text-gray-600">{description}</h1>
       </div>
       <div className="flex gap-8 items-center justify-center">
-        <p className="text-sm lg:text-xl font-semibold text-gray-600">{amount}</p>
-      <p className="text-[14px]lg:text-[22px] font-semibold text-teal-700" onClick={()=>handleDelete(id)}>
+        <p className="text-sm lg:text-[17px] font-semibold text-gray-600">{amount}</p>
+      <p className="text-[14px] lg:text-[22px] font-semibold text-teal-700" onClick={()=>handleDelete(id)}>
           <MdDelete />
         </p>
       </div>

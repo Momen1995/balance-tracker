@@ -74,7 +74,7 @@ const AddTransaction = () => {
                 type="radio"
                 name="transactionType"
                 value="income"
-                className="mr-2"
+                className="mr-2 cursor-pointer"
                 checked={transactionType === "income"}
                 onChange={handleOptionCheck}
                 required
@@ -88,7 +88,7 @@ const AddTransaction = () => {
                 type="radio"
                 name="transactionType"
                 value="expense"
-                className="mr-2"
+                className="mr-2 cursor-pointer"
                 checked={transactionType === "expense"}
                 onChange={handleOptionCheck}
                 required
