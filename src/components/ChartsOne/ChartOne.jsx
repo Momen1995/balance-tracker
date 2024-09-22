@@ -14,15 +14,16 @@ import {
 const ChartOne = () => {
   const { userDetail, transactionType } = useContext(BalanceContext);
 
-  const yAxisLabel = transactionType === "income" ? "Income ($)" : "Expense ($)";
+  const yAxisLabel =
+    transactionType === "income" ? "Income ($)" : "Expense ($)";
   const dataKey = transactionType === "income" ? "income" : "expense";
 
   return (
-    <div className="w-full h-[450px] shadow-xl mt-12  bg-[#fff]">
-      <h1 className="bg-[#2e6fef] text-white mb-3 h-16 p-5 text-left text-xl font-semibold">
+    <div className="w-full h-96 lg:h-[450px] shadow-xl mt-12 bg-white flex flex-col">
+      <h1 className="bg-[#2e6fef] text-white mb-3 h-16 p-4 lg:p-5 text-left lg:text-xl font-semibold">
         Balance History
       </h1>
-      <ResponsiveContainer width="100%" height="83%" className={`p-3`}>
+      <ResponsiveContainer width="100%" height="100%">
         <LineChart
           data={userDetail}
           margin={{
@@ -33,14 +34,12 @@ const ChartOne = () => {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-
           <XAxis dataKey="name" />
           <YAxis
             label={{ value: yAxisLabel, angle: -90, position: "insideLeft" }}
           />
           <Tooltip />
           <Legend />
-
           <Line
             type="monotone"
             dataKey={dataKey}

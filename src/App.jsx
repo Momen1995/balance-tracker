@@ -42,6 +42,19 @@ function App() {
 
      setUserDetail(newUser);
    };
+
+    const handleDelete = (id) => {
+      setUserDetail(userDetail.filter((user) => user.id !== id));
+
+      if (amount > 0 && transactionType === "income") {
+        setTotalBalance((preBalance) => preBalance - Number(amount));
+        setTotalIncome((preBalance) => preBalance - Number(amount));
+      } 
+      else {
+        setTotalBalance((preBalance) => preBalance + Number(amount));
+        setTotalExpense((preBalance) => preBalance - Number(-amount));
+      }
+    };
   
   return (
     <>
@@ -59,23 +72,23 @@ function App() {
           totalBalance,
           totalIncome,
           totalExpense,
+          handleDelete,
         }}
       >
-
-        <div className="bg-[#ffffff w-10/12 mx-auto">
-          <h1 className="text-3xl font-bold text-gray-700 uppercase tracking-wide">
+        <div className="w-full lg:w-10/12 lg:mx-auto ">
+          <h1 className="text-2xl lg:text-3xl font-bold text-gray-700 uppercase tracking-wide">
             Enhance balance tracker
           </h1>
-          <div className="flex gap-6 justify-between mt-10 ">
+          <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 justify-between mt-10 ">
             <TotalBalance />
             <TotalIncome />
             <TotalExpense />
           </div>
-          <div className="flex mt-8 gap-6">
+          <div className="flex flex-col lg:flex-row mt-8 gap-6">
             <AddTransaction />
             <RecentTransactions />
           </div>
-          <ChartOne/>
+          <ChartOne />
         </div>
       </BalanceContext.Provider>
     </>

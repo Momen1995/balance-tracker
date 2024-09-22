@@ -30,38 +30,40 @@ const AddTransaction = () => {
   console.log(transactionType)
 
   return (
-    <div className="bg-[#fff] w-2/5 shadow-md rounded">
+    <div className="bg-[#fff] w-full lg:w-2/5 shadow-md rounded">
       <h3 className="bg-[#2a9f90] text-white mb-3 h-14 p-4 text-left text-xl">
         Add Transaction
       </h3>
 
       <form className="p-4 text-left" onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="description" className="text-semibold">
+          <label htmlFor="description" className="text-semibold lg:text-[18px]">
             Description
           </label>
           <br />
           <input
             type="text"
             name="description"
-            className="w-full p-2 mt-1 bg-gray-100 rounded outline-none"
+            className="w-full p-2 mt-1 bg-gray-100 rounded outline-none lg:text-[17px]"
             placeholder="Write your description"
             value={description}
             onChange={handleDescription}
+            required
           />
         </div>
         <div className="mt-4">
-          <label htmlFor="amount" className="text-semibold">
+          <label htmlFor="amount" className="text-semibold lg:text-[18px]">
             Amount
           </label>
           <br />
           <input
             type="text"
             name="amount"
-            className="w-full p-2 mt-1 bg-gray-100 rounded outline-none"
+            className="w-full p-2 mt-1 bg-gray-100 rounded outline-none lg:text-[17px]"
             placeholder="Write amount"
             value={amount}
             onChange={handleAmount}
+            required
           />
         </div>
 
@@ -73,8 +75,9 @@ const AddTransaction = () => {
                 name="transactionType"
                 value="income"
                 className="mr-2"
-                checked={transactionType === "income"} 
+                checked={transactionType === "income"}
                 onChange={handleOptionCheck}
+                required
               />
               Income
             </label>
@@ -86,8 +89,9 @@ const AddTransaction = () => {
                 name="transactionType"
                 value="expense"
                 className="mr-2"
-                checked={transactionType === "expense"} 
+                checked={transactionType === "expense"}
                 onChange={handleOptionCheck}
+                required
               />
               Expense
             </label>
@@ -97,7 +101,7 @@ const AddTransaction = () => {
         <div className="flex justify-center">
           <button
             type="submit"
-            className="bg-[#2a9f90] px-4 py-2 rounded text-[18px] text-white inline-block mt-7 my-4"
+            className="bg-[#2a9f90] px-4 py-2 rounded text-sm lg:text-[18px] text-white inline-block mt-7 my-4"
           >
             Add Transaction
           </button>
