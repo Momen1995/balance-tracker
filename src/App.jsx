@@ -6,6 +6,7 @@ import RecentTransactions from "./components/RecentTransactions/RecentTransactio
 import TotalBalance from "./components/TotalBalance/TotalBalance";
 import TotalExpense from "./components/TotalExpense/TotalExpense";
 import TotalIncome from "./components/TotalIncome/TotalIncome";
+import ChartOne from "./components/ChartsOne/ChartOne";
 function App() {
    const [description, setDescription] = useState("");
    const [amount, setAmount] = useState("");
@@ -30,12 +31,12 @@ function App() {
        },
      ];
 
-     if(amount > 0){
+     if(amount > 0 && transactionType === "income"){
       setTotalBalance((preBalance) => preBalance + Number(amount));
       setTotalIncome(preBalance => preBalance + Number(amount) )
      }else{
-      setTotalBalance((preBalance) => preBalance + Number(amount));
-      setTotalExpense((preBalance) => preBalance + Number(amount));
+      setTotalBalance((preBalance) => preBalance + Number(-amount));
+      setTotalExpense((preBalance) => preBalance + Number(-amount));
      }
 
      setUserDetail(newUser);
@@ -59,8 +60,9 @@ function App() {
           totalExpense,
         }}
       >
+
         <div className="bg-[#ffffff w-10/12 mx-auto">
-          <h1 className="text-3xl font-bold text-gray-700 uppercase tracking-wider">
+          <h1 className="text-3xl font-bold text-gray-700 uppercase tracking-wide">
             Enhance balance tracker
           </h1>
           <div className="flex gap-6 justify-between mt-10 ">
@@ -72,6 +74,7 @@ function App() {
             <AddTransaction />
             <RecentTransactions />
           </div>
+          <ChartOne/>
         </div>
       </BalanceContext.Provider>
     </>

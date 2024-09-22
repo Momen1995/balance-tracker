@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { BalanceContext } from "../Context/BalanceContext";
 
 const AddTransaction = () => {
@@ -27,6 +27,7 @@ const AddTransaction = () => {
   };
 
   console.log(userDetail);
+  console.log(transactionType)
 
   return (
     <div className="bg-[#fff] w-2/5 shadow-md rounded">
@@ -85,7 +86,7 @@ const AddTransaction = () => {
                 name="transactionType"
                 value="expense"
                 className="mr-2"
-                checked={transactionType === "expense"} // Check if "expense" is selected
+                checked={transactionType === "expense"} 
                 onChange={handleOptionCheck}
               />
               Expense
