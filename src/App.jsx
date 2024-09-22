@@ -7,6 +7,7 @@ import TotalBalance from "./components/TotalBalance/TotalBalance";
 import TotalExpense from "./components/TotalExpense/TotalExpense";
 import TotalIncome from "./components/TotalIncome/TotalIncome";
 import ChartOne from "./components/ChartsOne/ChartOne";
+
 function App() {
    const [description, setDescription] = useState("");
    const [amount, setAmount] = useState("");

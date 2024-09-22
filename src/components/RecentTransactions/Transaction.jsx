@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { BalanceContext } from '../Context/BalanceContext';
 
 const Transaction = ({ transaction }) => {
-  const {description,amount,type} = transaction;
+  const {userDetail,setUserDetail} = useContext(BalanceContext)
+  const {description,amount,type,id} = transaction;
+
+  const handleDelete = id => {
+    setUserDetail(userDetail.filter(user => user.id !== id))
+  }
 
   const iconClasses =
     type === "income"
@@ -20,7 +26,7 @@ const Transaction = ({ transaction }) => {
       </div>
       <div className="flex gap-8 items-center justify-center">
         <p className="text-xl font-semibold text-gray-600">{amount}</p>
-        <p className="text-[22px] font-semibold text-teal-700">
+        <p className="text-[22px] font-semibold text-teal-700" onClick={()=>handleDelete(id)}>
           <MdDelete />
         </p>
       </div>

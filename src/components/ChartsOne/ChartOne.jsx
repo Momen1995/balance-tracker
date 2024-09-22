@@ -18,8 +18,11 @@ const ChartOne = () => {
   const dataKey = transactionType === "income" ? "income" : "expense";
 
   return (
-    <div className="w-full h-96 shadow-xl mt-12 p-3">
-      <ResponsiveContainer width="100%" height="100%">
+    <div className="w-full h-[450px] shadow-xl mt-12  bg-[#fff]">
+      <h1 className="bg-[#2e6fef] text-white mb-3 h-16 p-5 text-left text-xl font-semibold">
+        Balance History
+      </h1>
+      <ResponsiveContainer width="100%" height="83%" className={`p-3`}>
         <LineChart
           data={userDetail}
           margin={{
@@ -35,7 +38,7 @@ const ChartOne = () => {
           <YAxis
             label={{ value: yAxisLabel, angle: -90, position: "insideLeft" }}
           />
-          <Tooltip/>
+          <Tooltip />
           <Legend />
 
           <Line
